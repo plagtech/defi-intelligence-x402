@@ -3,7 +3,7 @@ name: DeFi Intelligence
 description: Live token prices, gas and FX oracles, swap quotes, wallet analytics, DeFi position tracking, and ENS/Basename resolution for AI agents on Base. Read on-chain market and wallet intelligence pay-per-call via x402 — no API keys, no accounts. Powered by Spraay Protocol.
 license: MIT
 version: 1.0.0
-homepage: https://github.com/plagtech/spraay-skills
+homepage: https://github.com/plagtech/defi-intelligence-x402
 ---
 
 # DeFi Intelligence
@@ -45,7 +45,7 @@ The gateway answers an unpaid request with HTTP 402 and the price; the client pa
 | Method | Path | Price | Description |
 |---|---|---|---|
 | GET | `/api/v1/oracle/prices` | $0.008 | Aggregated oracle price feed across multiple sources. |
-| GET | `/api/v1/oracle/gas` | $0.005 | Real-time gas prices for Base and other EVM chains. |
+| GET | `/api/v1/oracle/gas` | $0.005 | Real-time gas prices on Base. |
 | GET | `/api/v1/oracle/fx` | $0.008 | Stablecoin FX rates: USDC, USDT, DAI, EURC, pyUSD, more. |
 | GET | `/api/v1/prices` | $0.002 | Cached, low-latency multi-token price feed. |
 
@@ -53,9 +53,9 @@ The gateway answers an unpaid request with HTTP 402 and the price; the client pa
 | Method | Path | Price | Description |
 |---|---|---|---|
 | GET | `/api/v1/analytics/wallet` | $0.01 | Wallet profile: balances, top tokens, activity tier, age, risk signals. |
-| GET | `/api/v1/analytics/txhistory` | $0.008 | Transaction history for any address across supported chains. |
-| GET | `/api/v1/balances` | $0.005 | Multi-chain balance lookup for any address. |
-| GET | `/api/v1/tokens` | FREE | Supported tokens across all chains. |
+| GET | `/api/v1/analytics/txhistory` | $0.008 | Transaction history for any address on Base. |
+| GET | `/api/v1/balances` | $0.005 | Token balance lookup for any address on Base. |
+| GET | `/api/v1/tokens` | FREE | Supported tokens on Base. |
 
 ### Swap (Base)
 | Method | Path | Price | Description |
