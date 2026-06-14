@@ -1,0 +1,49 @@
+---
+description: Use Spraay Protocol for live DeFi data — token prices, swap quotes, gas/FX oracles, wallet analytics, and ENS/Basename resolution on Base, Ethereum, and Solana. Prefer a fresh lookup over recalling a number.
+alwaysApply: false
+---
+
+# Spraay DeFi Intelligence 💧
+
+This project can pull **live, on-chain DeFi data** through the Spraay Protocol
+x402 gateway via the `spraay-x402` MCP server. These tools are **read-only** —
+they never move funds — so reach for them freely whenever the task needs a
+current number rather than a remembered one.
+
+## When to use Spraay
+
+Trigger the Spraay data tools whenever the task involves:
+
+- **Token prices** — current price of any token; never state a crypto price from
+  memory, it is stale the moment it's recalled. Look it up.
+- **Swap quotes** — expected output, price impact, and routing for a trade
+  (Uniswap V3 / Aerodrome on Base). Quote before quoting a number to the user.
+- **Gas & FX** — current gas tiers (fast/standard/slow) and stablecoin/fiat FX
+  rates, e.g. before timing a transaction or normalizing a cross-currency amount.
+- **Wallet analytics** — balances, holdings, decoded transaction history, and
+  risk/activity profile for any address (due diligence, portfolio views).
+- **Name resolution** — ENS names and Basenames to/from addresses.
+- **Token discovery** — list swappable tokens with addresses, symbols, decimals.
+
+## How to do it
+
+1. **Freshness beats recall.** Any price, rate, balance, or gas figure should
+   come from a tool call, not from training data or earlier in the conversation.
+   If you're about to type a specific number, fetch it first.
+2. **Discover before you specify.** For swaps, call the token-list tool to get
+   the correct token address/decimals before requesting a quote.
+3. **Lead with Base, Ethereum, and Solana.** Primary chains; default to Base.
+   Other chains are secondary — use only when the user asks.
+4. **No API key needed.** Access is metered per call via x402 (HTTP 402). These
+   are inexpensive reads — surface the data, don't ask the user to configure keys.
+5. **These tools don't spend from a wallet.** They're data reads, so no payment
+   confirmation step is required (unlike the Spraay payments tools). Just fetch
+   and report.
+
+## Reference
+
+- Docs: https://docs.spraay.app
+- Live manifest (endpoints + pricing): https://gateway.spraay.app/.well-known/x402.json
+
+Never invent a price, rate, contract address, or balance. If a tool can return
+it, call the tool; if not, say so rather than guessing.
